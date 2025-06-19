@@ -1,0 +1,57 @@
+/* src/components/CarbonFootprint.css */
+/* .carbon-footprint-container {
+    padding: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #2e7d32;
+} */
+ /* src/components/CarbonFootprint.css */
+
+.carbon-footprint-container {
+    padding: 30px;
+    font-size: 1.4rem;
+    text-align: center;
+    background-color: #e8f5e9; /* Light green background */
+    color: #1b5e20; /* Darker green text for better contrast */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin: 30px auto;
+    max-width: 600px;
+    transition: transform 0.3s ease;
+}
+
+.carbon-footprint-container:hover {
+    transform: scale(1.02);
+}
+
+.carbon-footprint-container h2 {
+    color: #2e7d32;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.carbon-footprint-container p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #388e3c;
+}
+/* Add this to your existing CSS where the Reset Filters button is styled */
+
+.reset-button {
+    padding: 12px 24px;         /* Bigger padding */
+    font-size: 1.2rem;          /* Larger font */
+    font-weight: bold;          /* Bold text */
+    background-color: #ff7043;  /* Eye-catching orange */
+    color: white;               /* White text */
+    border: none;               /* Remove border */
+    border-radius: 8px;         /* Rounded corners */
+    cursor: pointer;            /* Pointer cursor */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+    margin: 10px;               /* Some spacing around */
+}
+
+.reset-button:hover {
+    background-color: #ff5722;  /* Darker orange on hover */
+    transform: scale(1.05);     /* Slight zoom on hover */
+}
+

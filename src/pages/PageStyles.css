@@ -1,0 +1,10 @@
+/* src/pages/PageStyles.css */
+.page-container {
+    padding: 30px;
+    text-align: center;
+}
+
+.page-container h1 {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}

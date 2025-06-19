@@ -1,0 +1,74 @@
+.material-usage-wrapper {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.material-usage-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.theme-selector {
+    margin-bottom: 20px;
+}
+
+.theme-selector button {
+    margin-right: 10px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ddd;
+    color: #333;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.theme-selector button:hover {
+    background-color: #bbb;
+}
+
+.theme-selector button.active {
+    background-color: #36A2EB;
+    color: white;
+}
+
+.chart-container {
+    width: 100%;
+    min-width: 800px;
+    height: 600px;
+    overflow-x: auto;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+.chart-type-selector {
+    margin-bottom: 20px;
+}
+
+.chart-type-selector button {
+    margin-right: 10px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ddd;
+    color: #333;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.chart-type-selector button:hover {
+    background-color: #bbb;
+}
+
+.chart-type-selector button.active {
+    background-color: #36A2EB;
+    color: white;
+}

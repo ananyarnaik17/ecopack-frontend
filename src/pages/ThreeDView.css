@@ -1,0 +1,32 @@
+/* src/pages/ThreeDView.css */
+.three-d-view-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+.canvas-container {
+  width: 80%;
+  height: 500px;
+  border: 2px solid #ccc;
+  margin: 20px 0;
+}
+
+.three-d-view-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.back-btn {
+  padding: 10px 20px;
+  background-color: #705cb8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background-color: #4c9eae;
+}

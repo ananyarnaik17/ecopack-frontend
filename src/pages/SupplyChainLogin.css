@@ -1,0 +1,254 @@
+/* src/pages/SupplyChainLogin.css */
+/*.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    background-color: white;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+}
+
+.login-container input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background-color: #45a049;
+}
+.home-link-container {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.home-link {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.home-link:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+*/
+/* src/pages/SupplyChainLogin.css */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Reset / global */
+/* Reset / global */
+body {
+    background-color: #d9f5cc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.login-wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Left side image */
+.fixed-image {
+    width: 50%;
+    min-height: 100vh;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+}
+
+/* Right container */
+.login-container {
+    flex: 1;
+    min-height: 100vh;
+    background-color: #fdfdfd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0 5%;
+}
+
+/* Top wavy shape */
+.login-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 160px;
+    clip-path: ellipse(150% 70% at 50% 100%);
+    background-color: #d9f5cc;
+    z-index: 1;
+}
+
+/* Login form */
+.login-form {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 450px;
+    border-radius: 20px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+    padding: 60px 40px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #2e7d32;
+}
+
+.login-form h2 {
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #2e7d32;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 16px;
+    margin: 16px 0;
+    border: 1px solid #a3c9a8;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #2e7d32;
+    font-size: 18px;
+    font-weight: 500;
+    transition: box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.login-form input::placeholder {
+    color: #90a590;
+}
+
+.login-form input:focus {
+    outline: none;
+    border: 1px solid #2e7d32;
+    box-shadow: 0 0 8px #a3c9a8;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 18px;
+    background-color: #2e7d32;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-form button:hover {
+    background-color: #256b28;
+    transform: translateY(-2px);
+}
+
+/* Optional social login or bottom links if needed */
+.social-login,
+.login-form .bottom-links {
+    color: #3e5840;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.login-form .bottom-links a {
+    color: #2e7d32;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login-form .bottom-links a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 1024px) {
+    .login-wrapper {
+        flex-direction: column; /* Stack vertically on mobile */
+    }
+
+    .fixed-image {
+        display: block;
+        width: 100%;
+        height: 200px; /* Adjust image height on mobile */
+        min-height: auto;
+        background-size: contain;
+    }
+
+    .login-container {
+        width: 100%;
+        min-height: auto;
+        padding: 20px;
+    }
+
+    .login-form {
+        max-width: 100%;
+        padding: 40px 20px;
+        border-radius: 18px;
+    }
+
+    .login-form h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .login-form input {
+        font-size: 16px;
+        padding: 14px;
+    }
+
+    .login-form button {
+        font-size: 18px;
+        padding: 14px;
+    }
+
+    .social-login,
+    .login-form .bottom-links {
+        font-size: 12px;
+        margin-top: 16px;
+    }
+}

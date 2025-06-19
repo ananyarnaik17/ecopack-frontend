@@ -1,0 +1,93 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f4f6f8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dashboard-header {
+  background-color: #2e7d32;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.dashboard-header p {
+  margin: 5px 0;
+  font-size: 1.1rem;
+}
+
+.tagline {
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+.dashboard-nav {
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+.dashboard-nav button {
+  background-color: #ffffff;
+  border: none;
+  margin: 0 20px;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.dashboard-nav button:hover {
+  color: #2e7d32;
+}
+
+.dashboard-nav .active {
+  border-bottom: 3px solid #2e7d32;
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.dashboard-content {
+  padding: 30px;
+}
+
+.logout-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #c0392b;
+}
+
+.dashboard-header {
+  position: relative; /* ✅ Add this */
+  padding: 20px;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+.logout-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}

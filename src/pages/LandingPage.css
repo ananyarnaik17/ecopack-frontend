@@ -1,0 +1,166 @@
+/* src/pages/LandingPage.css */
+
+/* .landing-container {
+  text-align: center;
+  padding: 50px 20px;
+  background: #f0f4f8;
+  min-height: 100vh;
+}
+
+.landing-container h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #2e7d32;
+}
+
+.landing-container p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: #555;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 30px 20px;
+  width: 280px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.card h2 {
+  margin-bottom: 10px;
+  color: #1976d2;
+}
+
+.card p {
+  color: #666;
+} */
+/* src/pages/LandingPage.css */
+
+.landing-container {
+  text-align: center;
+  padding: 50px 20px;
+  background: #f9fafb;
+  min-height: 100vh;
+}
+
+.landing-container h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #2e7d32;
+}
+
+.landing-container p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: #555;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* Equal height for all cards */
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 20px 0; /* Added spacing around the card grid */
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  display: flex;
+  flex-direction: column; /* Stack image, title, text vertically */
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+  text-align: left;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card h2 {
+  margin: 15px 15px 10px;
+  color: #1976d2;
+  font-size: 1.5rem;
+}
+
+.card p {
+  margin: 0 15px 20px;
+  color: #666;
+  font-size: 1rem;
+  flex-grow: 1; /* Makes the paragraph expand to equalize card heights */
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+}
+
+.supply-chain-login {
+  margin-top: 40px; /* Increased spacing for better visual separation */
+  text-align: center;
+  font-size: 16px;
+}
+
+.login-link {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.login-link:hover {
+  color: #0056b3;
+}
+
+.logout-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.logout-btn:hover {
+  background-color: #c0392b;
+}
+
+.landing-container {
+  position: relative;
+}
