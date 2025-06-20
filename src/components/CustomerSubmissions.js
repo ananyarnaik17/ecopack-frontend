@@ -10,6 +10,15 @@ function CustomerSubmissions() {
     const [durabilityFilter, setDurabilityFilter] = useState('');
     const [shippingMethodFilter, setShippingMethodFilter] = useState('');
 
+    const productTypeOptions = [
+        'Mug', 'Bottle', 'Flask', 'Plate', 'Cutlery', 'Vase', 'Book', 'Glassware',
+        'Laptop', 'Smartphone', 'Camera', 'Shoes', 'Lamp', 'Speaker', 'Helmet',
+        'Mirror', 'Tablet', 'Headphones', 'Toy', 'Jewelry'
+    ];
+
+    const durabilityOptions = ['Fragile', 'Medium', 'Strong'];
+    const shippingMethodOptions = ['Air', 'Sea', 'Land', 'Local'];
+
     const emissionFactors = {
         air: 0.5,
         sea: 0.2,
@@ -19,8 +28,7 @@ function CustomerSubmissions() {
 
     const getEmissionFactor = (method) => {
         if (typeof method !== 'string') return 0.3;
-        const normalized = method.trim().toLowerCase();
-        return emissionFactors[normalized] || 0.3;
+        return emissionFactors[method.trim().toLowerCase()] || 0.3;
     };
 
     const calculateCarbonFootprint = (submission) => {
@@ -57,35 +65,24 @@ function CustomerSubmissions() {
 
         if (productTypeFilter !== '') {
             filtered = filtered.filter((sub) =>
-                sub.formData?.productType?.toLowerCase() === productTypeFilter.toLowerCase()
+                (sub.formData?.productType || '').toLowerCase() === productTypeFilter.toLowerCase()
             );
         }
 
         if (durabilityFilter !== '') {
             filtered = filtered.filter((sub) =>
-                sub.formData?.durability?.toLowerCase() === durabilityFilter.toLowerCase()
+                (sub.formData?.durability || '').toLowerCase() === durabilityFilter.toLowerCase()
             );
         }
 
         if (shippingMethodFilter !== '') {
             filtered = filtered.filter((sub) =>
-                sub.formData?.shippingMethod?.toLowerCase() === shippingMethodFilter.toLowerCase()
+                (sub.formData?.shippingMethod || '').toLowerCase() === shippingMethodFilter.toLowerCase()
             );
         }
 
         setFilteredSubmissions(filtered);
     }, [productTypeFilter, durabilityFilter, shippingMethodFilter, submissions]);
-
-    const uniqueValues = (field) => {
-        const valueSet = new Set();
-        submissions.forEach((sub) => {
-            const value = sub.formData?.[field];
-            if (typeof value === 'string' && value.trim() !== '') {
-                valueSet.add(value.toLowerCase());
-            }
-        });
-        return Array.from(valueSet);
-    };
 
     const resetFilters = () => {
         setProductTypeFilter('');
@@ -129,23 +126,21 @@ function CustomerSubmissions() {
             <div className="filters-container">
                 <select value={productTypeFilter} onChange={(e) => setProductTypeFilter(e.target.value)} className="filter-dropdown">
                     <option value="">All Product Types</option>
-                    {[ 'Mug', 'Bottle', 'Flask', 'Plate', 'Cutlery', 'Vase', 'Book', 'Glassware',
-                       'Laptop', 'Smartphone', 'Camera', 'Shoes', 'Lamp', 'Speaker', 'Helmet',
-                       'Mirror', 'Tablet', 'Headphones', 'Toy', 'Jewelry'].map((type, idx) => (
+                    {productTypeOptions.map((type, idx) => (
                         <option key={idx} value={type}>{type}</option>
                     ))}
                 </select>
 
                 <select value={durabilityFilter} onChange={(e) => setDurabilityFilter(e.target.value)} className="filter-dropdown">
                     <option value="">All Durability Levels</option>
-                    {['fragile', 'medium', 'strong'].map((level, idx) => (
+                    {durabilityOptions.map((level, idx) => (
                         <option key={idx} value={level}>{level}</option>
                     ))}
                 </select>
 
                 <select value={shippingMethodFilter} onChange={(e) => setShippingMethodFilter(e.target.value)} className="filter-dropdown">
                     <option value="">All Shipping Methods</option>
-                    {['air', 'sea', 'land', 'local'].map((method, idx) => (
+                    {shippingMethodOptions.map((method, idx) => (
                         <option key={idx} value={method}>{method}</option>
                     ))}
                 </select>
