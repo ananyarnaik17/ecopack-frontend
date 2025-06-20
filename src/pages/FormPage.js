@@ -74,12 +74,13 @@ function FormPage() {
         console.log("Payload sent to backend:", payload);
 
         try {
-            const res = await axios.post('http://localhost:8000/predict', payload);
+            const res = await axios.post(`${process.env.REACT_APP_PYTHON_API_URL}/predict`, payload);
             console.log("Response from backend:", res.data);
 
             if (res.data && res.data.recommendation) {
                 // Get shipping cost
-                const shippingRes = await axios.post('http://localhost:5000/api/get-shipping-cost', {
+                const shippingRes = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/get-shipping-cost`, {
+                  
                     weight: parseFloat(formData.weight),
                     shippingMethod: formData.shippingMethod
                 });
