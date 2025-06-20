@@ -111,7 +111,7 @@ function MaterialUsage() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/recommendations/');
+            const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/recommendations`);
             console.log('Fetched Material Usage Data:', response.data);
             setData(response.data);
         } catch (error) {
@@ -121,8 +121,9 @@ function MaterialUsage() {
 
     const usageCount = {};
     data.forEach((item) => {
-        if (item.recommendation) {
-            usageCount[item.recommendation] = (usageCount[item.recommendation] || 0) + 1;
+        const recommendation = item.recommendation?.trim();
+        if (recommendation) {
+            usageCount[recommendation] = (usageCount[recommendation] || 0) + 1;
         }
     });
 
