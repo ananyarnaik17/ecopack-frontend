@@ -38,7 +38,7 @@ function LandingPage() {
         {
             title: 'Carbon Footprint',
             text: 'Track carbon footprint based on shipping and materials.',
-            img: '/images/carbon.jpg',
+            img: '/images/carbon.png',
             path: '/carbon-footprint'
         }
     ];

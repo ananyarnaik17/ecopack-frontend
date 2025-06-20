@@ -1,4 +1,3 @@
-// src/components/CarbonFootprint.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './CarbonFootprint.css';
@@ -7,11 +6,11 @@ function CarbonFootprint() {
     const [submissions, setSubmissions] = useState([]);
     const [totalCarbon, setTotalCarbon] = useState(0);
 
-    // Carbon footprint factors in kg CO₂ per kg shipped
     const emissionFactors = {
-        Air: 1.3,   // 1.3 kg CO₂ per kg
-        Sea: 0.02,  // 0.02 kg CO₂ per kg
-        Land: 0.1   // 0.1 kg CO₂ per kg
+        air: 0.5,
+        sea: 0.2,
+        land: 0.1,
+        local: 0.05,
     };
 
     useEffect(() => {
@@ -20,7 +19,7 @@ function CarbonFootprint() {
 
     const fetchSubmissions = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/get-submissions');
+            const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/get-submissions`);
             setSubmissions(response.data);
             calculateCarbonFootprint(response.data);
         } catch (error) {
@@ -32,11 +31,11 @@ function CarbonFootprint() {
         let total = 0;
 
         data.forEach(sub => {
-            const weight = parseFloat(sub.formData.weight) || 0;
-            const shippingMethod = sub.formData.shipping || 'Land';
+            const weight = parseFloat(sub.formData?.weight || '0');
+            const method = sub.formData?.shippingMethod?.toLowerCase() || 'land';
 
-            if (emissionFactors[shippingMethod]) {
-                total += weight * emissionFactors[shippingMethod];
+            if (emissionFactors[method]) {
+                total += weight * emissionFactors[method];
             }
         });
 
