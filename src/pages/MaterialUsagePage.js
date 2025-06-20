@@ -4,7 +4,7 @@ import axios from 'axios';
 import {
     BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, PieChart, Pie, Cell
 } from 'recharts';
-import './MaterialUsage.css';
+import '../components/MaterialUsage.css';
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#AF19FF'];
 
