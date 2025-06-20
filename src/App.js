@@ -63,7 +63,7 @@ import LandingPage from './pages/LandingPage';
 import FormPage from './pages/FormPage';
 import ThreeDView from './pages/ThreeDView';
 import FeedbackForm from './pages/FeedbackForm';
-import MaterialUsage from './pages/MaterialUsagePage';
+import MaterialUsage from './components/MaterialUsage';
 import CarbonFootprint from './pages/CarbonFootprintPage';
 
 import './App.css';
