@@ -129,14 +129,16 @@ function CustomerSubmissions() {
             <div className="filters-container">
                 <select value={productTypeFilter} onChange={(e) => setProductTypeFilter(e.target.value)} className="filter-dropdown">
                     <option value="">All Product Types</option>
-                    {uniqueValues('productType').map((type, idx) => (
+                    {[ 'Mug', 'Bottle', 'Flask', 'Plate', 'Cutlery', 'Vase', 'Book', 'Glassware',
+                       'Laptop', 'Smartphone', 'Camera', 'Shoes', 'Lamp', 'Speaker', 'Helmet',
+                       'Mirror', 'Tablet', 'Headphones', 'Toy', 'Jewelry'].map((type, idx) => (
                         <option key={idx} value={type}>{type}</option>
                     ))}
                 </select>
 
                 <select value={durabilityFilter} onChange={(e) => setDurabilityFilter(e.target.value)} className="filter-dropdown">
                     <option value="">All Durability Levels</option>
-                    {uniqueValues('durability').map((level, idx) => (
+                    {['fragile', 'medium', 'strong'].map((level, idx) => (
                         <option key={idx} value={level}>{level}</option>
                     ))}
                 </select>
