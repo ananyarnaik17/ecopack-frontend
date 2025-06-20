@@ -91,34 +91,51 @@ export default MaterialUsage;
  */
 // src/components/MaterialUsage.js
 
+// src/components/MaterialUsage.js
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Bar, Pie } from 'react-chartjs-2';
-import { Chart, BarElement, ArcElement, CategoryScale, LinearScale, Tooltip, Legend } from 'chart.js';
-import '../components/MaterialUsage.css';
+import {
+    Chart,
+    BarElement,
+    ArcElement,
+    CategoryScale,
+    LinearScale,
+    Tooltip,
+    Legend,
+} from 'chart.js';
+import './MaterialUsage.css'; // ✅ Correct CSS import
 
+// Register necessary Chart.js components
 Chart.register(BarElement, ArcElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 function MaterialUsage() {
     const [data, setData] = useState([]);
     const [chartType, setChartType] = useState('bar');
 
-    const chartColors = ['#FF6B6B', '#6BCB77', '#4D96FF', '#FFD93D', '#845EC2', '#FF9671', '#00C9A7'];
+    const chartColors = [
+        '#FF6B6B', '#6BCB77', '#4D96FF', '#FFD93D',
+        '#845EC2', '#FF9671', '#00C9A7', '#A66DD4',
+        '#00B8A9', '#F9F871', '#FF6F91', '#5FAD56'
+    ];
 
+    // Fetch data from backend on mount
     useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/recommendations`);
+                console.log('Fetched Material Usage Data:', response.data);
+                setData(response.data);
+            } catch (error) {
+                console.error('Error fetching material usage data:', error);
+            }
+        };
+
         fetchData();
     }, []);
 
-    const fetchData = async () => {
-        try {
-            const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/recommendations`);
-            console.log('Fetched Material Usage Data:', response.data);
-            setData(response.data);
-        } catch (error) {
-            console.error('Error fetching material data:', error);
-        }
-    };
-
+    // Count occurrences of each recommendation type
     const usageCount = {};
     data.forEach((item) => {
         const recommendation = item.recommendation?.trim();
@@ -127,6 +144,7 @@ function MaterialUsage() {
         }
     });
 
+    // Prepare chart data
     const chartData = {
         labels: Object.keys(usageCount),
         datasets: [
@@ -144,9 +162,22 @@ function MaterialUsage() {
         indexAxis: chartType === 'bar' ? 'y' : 'x',
         plugins: {
             legend: { display: chartType === 'pie' },
-            tooltip: { callbacks: { label: (context) => `Count: ${context.raw}` } },
+            tooltip: {
+                callbacks: {
+                    label: (context) => `Count: ${context.raw}`,
+                },
+            },
         },
-        scales: chartType === 'bar' ? { x: { beginAtZero: true, ticks: { stepSize: 1 } } } : {},
+        scales: chartType === 'bar' ? {
+            x: {
+                beginAtZero: true,
+                ticks: { stepSize: 1 },
+                title: { display: true, text: 'Count' },
+            },
+            y: {
+                title: { display: true, text: 'Material Type' },
+            },
+        } : {},
     };
 
     return (
@@ -154,8 +185,18 @@ function MaterialUsage() {
             <h2 className="material-usage-title">📊 Material Usage Chart</h2>
 
             <div className="chart-type-selector">
-                <button className={chartType === 'bar' ? 'active' : ''} onClick={() => setChartType('bar')}>Bar Chart</button>
-                <button className={chartType === 'pie' ? 'active' : ''} onClick={() => setChartType('pie')}>Pie Chart</button>
+                <button
+                    className={chartType === 'bar' ? 'active' : ''}
+                    onClick={() => setChartType('bar')}
+                >
+                    Bar Chart
+                </button>
+                <button
+                    className={chartType === 'pie' ? 'active' : ''}
+                    onClick={() => setChartType('pie')}
+                >
+                    Pie Chart
+                </button>
             </div>
 
             {Object.keys(usageCount).length === 0 ? (
